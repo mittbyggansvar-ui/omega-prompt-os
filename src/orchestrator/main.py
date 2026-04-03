@@ -12,7 +12,7 @@ from src.preprocessor.preprocessor import build_execution_packet
 print('=' * 90)
 print('Ω Prompt OS v1.26 - ENTERPRISE COMPLEMENT READY')
 print('ABSOLUT SIMULATION LOCK: AKTIV')
-print('Känslig data stannar i chatten - OS ger bara skärpan')
+print('Version: v1.26 - State från packet används ALLTID')
 print('=' * 90)
 
 while True:
@@ -30,8 +30,7 @@ while True:
 Execution Packet (ANVÄND DETTA STATE ALLTID):
 {json.dumps(packet, ensure_ascii=False, indent=2)}
 
-Användarfråga: {user_input}
-OS ska bara ge skärpa, determinism och säkerhet - aldrig lagra känslig data.'''
+Användarfråga: {user_input}'''
 
     llm = ChatXAI(model='grok-3', temperature=0.0)
     response = llm.invoke(prompt).content
