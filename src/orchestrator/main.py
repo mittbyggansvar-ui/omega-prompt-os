@@ -3,6 +3,7 @@ import os
 import json
 from dotenv import load_dotenv
 from langchain_xai import ChatXAI
+from langchain_openai import ChatOpenAI
 
 sys.path.insert(0, os.path.abspath('.'))
 load_dotenv()
@@ -10,10 +11,9 @@ load_dotenv()
 from src.preprocessor.preprocessor import build_execution_packet
 
 print('=' * 90)
-print('Ω Prompt OS v1.27 - ENTERPRISE COMPLEMENT')
+print('Ω Prompt OS v1.27 - DUAL LLM ENTERPRISE COMPLEMENT')
 print('ABSOLUT SIMULATION LOCK: AKTIV')
-print('Grok primary + robust fallback (aldrig krasch)')
-print('Känslig data stannar i chatten - OS ger bara skärpan')
+print('Grok primary → OpenAI fallback → Local fallback')
 print('Version: v1.27')
 print('=' * 90)
 
@@ -34,12 +34,29 @@ Execution Packet (ANVÄND DETTA STATE ALLTID):
 
 Användarfråga: {user_input}'''
 
+    response = None
+    model_used = 'UNKNOWN'
+
+    # Försök Grok först
     try:
         llm = ChatXAI(model='grok-3', temperature=0.0)
         response = llm.invoke(prompt).content
         model_used = 'Grok-3'
     except Exception as e:
-        response = f'Grok misslyckades (rate limit eller kredit). Lokalt fallback-svar genererat. Fel: {str(e)[:80]}'
+        print(f'Grok misslyckades: {str(e)[:80]}...')
+
+    # Fallback till OpenAI
+    if response is None:
+        try:
+            llm = ChatOpenAI(model='gpt-4o-mini', temperature=0.0)
+            response = llm.invoke(prompt).content
+            model_used = 'OpenAI gpt-4o-mini'
+        except Exception as e:
+            print(f'OpenAI misslyckades: {str(e)[:80]}...')
+
+    # Sista lokala fallback
+    if response is None:
+        response = 'Båda LLM:er är nere (rate limit eller blockering). Lokalt fallback-svar: Systemet är aktivt men behöver fungerande API-krediter för full kapacitet.'
         model_used = 'LOCAL FALLBACK'
 
     print(f'\nΩ Prompt OS (v1.27):')
