@@ -12,7 +12,7 @@ from src.preprocessor.preprocessor import build_execution_packet
 print('=' * 90)
 print('Ω Prompt OS v1.26 - GROK-ONLY ENTERPRISE COMPLEMENT')
 print('ABSOLUT SIMULATION LOCK: AKTIV')
-print('OpenAI nyckel blockerad - använder endast Grok')
+print('OpenAI helt borttagen - använder endast Grok-3')
 print('Version: v1.26 - State från packet används ALLTID')
 print('=' * 90)
 
