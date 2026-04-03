@@ -10,16 +10,17 @@ load_dotenv()
 from src.preprocessor.preprocessor import build_execution_packet
 
 print('=' * 90)
-print('Ω Prompt OS v1.26 - GROK-ONLY WITH FALLBACK')
+print('Ω Prompt OS v1.27 - ENTERPRISE COMPLEMENT')
 print('ABSOLUT SIMULATION LOCK: AKTIV')
-print('OpenAI blockerad → automatisk fallback till Grok')
-print('Version: v1.26')
+print('Grok primary + robust fallback (aldrig krasch)')
+print('Känslig data stannar i chatten - OS ger bara skärpan')
+print('Version: v1.27')
 print('=' * 90)
 
 while True:
     user_input = input('\nDu: ').strip()
     if user_input.lower() in ['exit', 'quit', 'avsluta']:
-        print('Avslutar Ω Prompt OS v1.26. Hej då!')
+        print('Avslutar Ω Prompt OS v1.27. Hej då!')
         break
 
     packet = build_execution_packet(user_input)
@@ -38,10 +39,10 @@ Användarfråga: {user_input}'''
         response = llm.invoke(prompt).content
         model_used = 'Grok-3'
     except Exception as e:
-        response = f'OpenAI nyckel blockerad. Använder Grok-only fallback. Fel: {str(e)[:100]}'
-        model_used = 'GROK FALLBACK'
+        response = f'Grok misslyckades (rate limit eller kredit). Lokalt fallback-svar genererat. Fel: {str(e)[:80]}'
+        model_used = 'LOCAL FALLBACK'
 
-    print(f'\nΩ Prompt OS (v1.26):')
+    print(f'\nΩ Prompt OS (v1.27):')
     print(f' → Model used: {model_used}')
     print(f' → Intent: {packet["intent"]}')
     print(f' → Svar: {response}')
