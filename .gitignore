@@ -1,14 +1,52 @@
-﻿# Ω Prompt OS - Active Line Only
+﻿# Ω Prompt OS v1.27 - Active Line Only + Zero-Trust
+# ================================================
+
+# Känslig data & legacy (aldrig commita)
 .env*
 *.backup
 .omega-final
 .omega_runs.jsonl
 .omega_vault.json
+.omega_audit.log
+omega_runtime_manifest.json.bak
+
+# Quarantine & analysis
 _legacy_quarantine/
 _analysis_artifacts/
-omega_runtime_manifest.json.bak
-src/orchestrator/engine.py
-diagnostics.py
-test_*.py
-boot_omega*.py
-CRITICAL_DUMP*
+
+# Python venv & environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Python byte-compiled & cache
+__pycache__/
+*.py[cod]
+*.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs & runtime artifacts
+*.log
+.omega_runs_active.jsonl   # optional - ta bort raden om du vill tracka active log
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Active line policy reminder
+# Endast src/orchestrator/main.py, src/preprocessor/preprocessor.py, src/layers/layer1_constitution.txt får påverka runtime.
