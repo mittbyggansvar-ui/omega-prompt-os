@@ -7,5 +7,8 @@
     "session_counter_path":  ".session_counter.txt",
     "runtime_entrypoint":  "src/orchestrator/main.py",
     "run_log_path":  ".omega_runs_active.jsonl",
-    "constitution_path":  "src/layers/layer1_constitution.txt"
+    "constitution_path":  "src/layers/layer1_constitution.txt",
+    "hash_src_orchestrator_main.py":  "A7902948B584B5046CE51A894638B546D4A29EC67F930ACA2E6311EA107C1E56",
+    "hash_src_preprocessor_preprocessor.py":  "C5A9F3ECA52409BB28E657DA61CB66E7DF6892B5DD2291488D42EABA151F1CDD",
+    "hash_src_layers_layer1_constitution.txt":  "F69349CD31BD32DD5FC48F9B67BAEEF63D5DDFEB83EE46E7FDE86D86891C01A1"
 }
