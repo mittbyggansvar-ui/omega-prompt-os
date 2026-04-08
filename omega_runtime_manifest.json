@@ -1,11 +1,11 @@
-{
+﻿{
     "policy":  "Only these files may affect runtime. Hash mismatch = immediate SAFE_REJECT",
     "version":  "1.27",
     "enforcement":  "fail_closed",
     "active_line":  [
                         {
                             "path":  "src/orchestrator/main.py",
-                            "sha256":  "816539dbb12efd64871bb3733c4982b0362229d27b5add8819120feafacc913f"
+                            "sha256":  "5e1b5b7465fb945a22787ba8a9a814cc54e4adc900b8ba662fdb078be1ef0ca3"
                         },
                         {
                             "path":  "src/preprocessor/preprocessor.py",
