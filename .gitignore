@@ -53,3 +53,4 @@ Thumbs.db
 
 # Legacy - not active line
 src/orchestrator/engine.py
+.session_counter.txt
