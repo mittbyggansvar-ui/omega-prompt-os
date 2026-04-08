@@ -1,16 +1,4 @@
-﻿# === SAFE IMPORT ENFORCEMENT (Del 5 stable) ===
-ALLOWED_MODULES = {"hashlib", "json", "os", "sys", "datetime", "runtime_verifier", "verify_audit_chain"}
-
-def safe_import(name):
-    base = name.split('.')[0]
-    if base not in ALLOWED_MODULES and not name.startswith("src."):
-        print(f"SAFE_REJECT: Otillåten import blockerades: {name}")
-        import sys
-        sys.exit(1)
-    __import__(name)
-    print(f"Import OK: {name}")
-
-def build_execution_packet(user_input):
+﻿def build_execution_packet(user_input):
     from datetime import datetime
     import json, os
 
@@ -20,20 +8,20 @@ def build_execution_packet(user_input):
     # session
     if os.path.exists(SESSION_COUNTER):
         try:
-            with open(SESSION_COUNTER, "r", encoding="utf-8")")
+            with open(SESSION_COUNTER, "r", encoding="utf-8") as f:
                 count = int(f.read().strip()) + 1
         except:
             count = 1
     else:
         count = 1
 
-    with open(SESSION_COUNTER, "w", encoding="utf-8")")
+    with open(SESSION_COUNTER, "w", encoding="utf-8") as f:
         f.write(str(count))
 
     # runs
     runs = []
     if os.path.exists(RUN_LOG):
-        with open(RUN_LOG, "r", encoding="utf-8")")
+        with open(RUN_LOG, "r", encoding="utf-8") as f:
             for line in f:
                 try:
                     runs.append(json.loads(line))
@@ -65,5 +53,3 @@ def build_execution_packet(user_input):
             "questions": 7
         }
     }
-
-

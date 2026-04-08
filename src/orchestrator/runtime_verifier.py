@@ -4,7 +4,7 @@ import sys
 import os
 
 def load_manifest():
-    with open("omega_runtime_manifest.json", "r", encoding="utf-8") as f:
+    with open("omega_runtime_manifest.json", "r", encoding="utf-8-sig") as f:
         return json.load(f)
 
 def verify_file_hash(file_path, expected_hash):
@@ -26,3 +26,4 @@ def runtime_verify():
 
 if __name__ == "__main__":
     runtime_verify()
+
