@@ -14,6 +14,14 @@
                         {
                             "path":  "src/layers/layer1_constitution.txt",
                             "sha256":  "61df447526840eab3c0cabf71865e514fefd03ccdf923cd98022a6b53275f1e1"
+                        },
+                        {
+                            "path":  "src/orchestrator/runtime_verifier.py",
+                            "sha256":  "ef9e970ed5eedd83b16298f79bd21a8dcb631c2b4dd5aa5e35a7c103b65d461f"
+                        },
+                        {
+                            "path":  "src/orchestrator/verify_audit_chain.py",
+                            "sha256":  "71eeb39d3d16ec4e98995bc077ce6488d0b178137f39ed0d2d065923757e4ae0"
                         }
                     ]
 }
