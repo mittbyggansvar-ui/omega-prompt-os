@@ -1,4 +1,16 @@
-﻿def build_execution_packet(user_input):
+﻿# === SAFE IMPORT ENFORCEMENT (Del 5 stable) ===
+ALLOWED_MODULES = {"hashlib", "json", "os", "sys", "datetime", "runtime_verifier", "verify_audit_chain"}
+
+def safe_import(name):
+    base = name.split('.')[0]
+    if base not in ALLOWED_MODULES and not name.startswith("src."):
+        print(f"SAFE_REJECT: Otillåten import blockerades: {name}")
+        import sys
+        sys.exit(1)
+    __import__(name)
+    print(f"Import OK: {name}")
+
+def build_execution_packet(user_input):
     from datetime import datetime
     import json, os
 
@@ -53,4 +65,5 @@
             "questions": 7
         }
     }
+
 
