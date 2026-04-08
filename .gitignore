@@ -36,7 +36,7 @@ dist/
 
 # Logs & runtime artifacts
 *.log
-.omega_runs_active.jsonl   # optional - ta bort raden om du vill tracka active log
+.omega_runs_active.jsonl
 
 # IDE / editor
 .vscode/
