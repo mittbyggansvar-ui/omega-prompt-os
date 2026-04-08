@@ -11,12 +11,9 @@ load_dotenv()
 BOOT_BANNER = "Ω Prompt OS ACTIVE LINE loaded - Grok-3 primary + OpenAI fallback"
 ALLOWED_MODULES = {"hashlib", "json", "os", "sys", "datetime", "dotenv", "langchain_xai", "langchain_openai", "runtime_verifier", "verify_audit_chain"}
 
-def is_allowed_module(name):
-    base = name.split('.')[0]
-    return base in ALLOWED_MODULES or name.startswith("src.")
-
 def safe_import(name):
-        if not is_allowed_module(name):
+    base = name.split('.')[0]
+    if base not in ALLOWED_MODULES and not name.startswith("src."):
         print(f"SAFE_REJECT: Otillåten import blockerades: {name}")
         sys.exit(1)
     __import__(name)
@@ -70,7 +67,6 @@ def process(user_input: str):
 if __name__ == "__main__":
     test = "Hej, hur mår du idag?"
     process(test)
-
 
 
 
