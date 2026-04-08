@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Safe import enforcement
-BOOT_BANNER = "Ω Prompt OS ACTIVE LINE loaded - Grok-3 primary + OpenAI fallback"
 ALLOWED_MODULES = {"hashlib", "json", "os", "sys", "datetime", "dotenv", "langchain_xai", "langchain_openai", "runtime_verifier", "verify_audit_chain"}
 
 def safe_import(name):
@@ -35,7 +34,7 @@ def bootstrap_audit_verification():
     verify_audit_chain()
 
 def bootstrap_banner():
-    print(BOOT_BANNER)
+    print("Ω Prompt OS ACTIVE LINE loaded - Grok-3 primary + OpenAI fallback")
 verify_audit_chain()
 
 # LLM clients
@@ -47,7 +46,7 @@ from langchain_openai import ChatOpenAI
 llm_grok = ChatXAI(model="grok-3", temperature=0)
 llm_openai = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-print(BOOT_BANNER)
+print("Ω Prompt OS ACTIVE LINE loaded - Grok-3 primary + OpenAI fallback")
 
 # Huvudfunktion - explicit entrypoint
 def process(user_input: str):
@@ -67,7 +66,6 @@ def process(user_input: str):
 if __name__ == "__main__":
     test = "Hej, hur mår du idag?"
     process(test)
-
 
 
 
