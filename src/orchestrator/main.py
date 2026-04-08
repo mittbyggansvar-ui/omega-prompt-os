@@ -1,12 +1,21 @@
 ﻿
 # === RUNTIME ENFORCEMENT - FAIL-CLOSED ===
 # ABSOLUT SIMULATION LOCK + boundary proof
-from runtime_verifier import runtime_verify
+safe_import("runtime_verifier import runtime_verify
 runtime_verify()
 
 # Audit chain verification at startup
-from verify_audit_chain import verify_audit_chain
+safe_import("verify_audit_chain import verify_audit_chain
 verify_audit_chain()
+
+
+# === MILJÖSKYDD - ZERO-TRUST ===
+import os
+os.environ.clear()  # Rensa alla env-variabler
+os.environ["PYTHONIOENCODING"] = "utf-8"  # Endast tillåtna
+# Blockera subprocess
+import subprocess
+subprocess.Popen = lambda *args, **kwargs: (_ for _ in ()).throw(Exception("SAFE_REJECT: subprocess blocked"))
 
 
 # === STRICT IMPORT ENFORCEMENT - ZERO-TRUST ===
@@ -23,8 +32,8 @@ def safe_import(name):
     __import__(name)
     print(f"Import OK: {name}")
 
-import sys
-import os
+safe_import("sys
+safe_import("os
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if PROJECT_ROOT not in sys.path:
@@ -32,16 +41,16 @@ if PROJECT_ROOT not in sys.path:
 
 sys.stdout.reconfigure(encoding="utf-8")
 
-import json
-import hashlib
-from datetime import datetime
-from dotenv import load_dotenv
-from langchain_xai import ChatXAI
-from langchain_openai import ChatOpenAI
+safe_import("json
+safe_import("hashlib
+safe_import("datetime import datetime
+safe_import("dotenv import load_dotenv
+safe_import("langchain_xai import ChatXAI
+safe_import("langchain_openai import ChatOpenAI
 
 load_dotenv()
 
-from src.preprocessor.preprocessor import build_execution_packet
+safe_import("src.preprocessor.preprocessor import build_execution_packet
 
 RUN_LOG = ".omega_runs_active.jsonl"
 ACTIVE_VERSION = "ACTIVE_LINE"
@@ -263,7 +272,7 @@ while True:
     effective_input = packet["normalized_input"]
 
     constitution_path = os.path.join(PROJECT_ROOT, "src", "layers", "layer1_constitution.txt")
-    with open(constitution_path, "r", encoding="utf-8") as f:
+    with open(constitution_path, "r", encoding="utf-8")")
         constitution = f.read()
 
     response = None
@@ -357,7 +366,7 @@ while True:
     }
 
     run_log_path = os.path.join(PROJECT_ROOT, RUN_LOG)
-    with open(run_log_path, "a", encoding="utf-8") as f:
+    with open(run_log_path, "a", encoding="utf-8")")
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
     print(f"\nΩ Prompt OS ACTIVE LINE:")
@@ -370,6 +379,8 @@ while True:
     print(f" -> Signature: {signature}")
     print(f" -> Svar: {response}")
     print(f"[RunLog] Entry appended -> {run_log_path}")
+
+
 
 
 

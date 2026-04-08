@@ -8,20 +8,20 @@
     # session
     if os.path.exists(SESSION_COUNTER):
         try:
-            with open(SESSION_COUNTER, "r", encoding="utf-8") as f:
+            with open(SESSION_COUNTER, "r", encoding="utf-8")")
                 count = int(f.read().strip()) + 1
         except:
             count = 1
     else:
         count = 1
 
-    with open(SESSION_COUNTER, "w", encoding="utf-8") as f:
+    with open(SESSION_COUNTER, "w", encoding="utf-8")")
         f.write(str(count))
 
     # runs
     runs = []
     if os.path.exists(RUN_LOG):
-        with open(RUN_LOG, "r", encoding="utf-8") as f:
+        with open(RUN_LOG, "r", encoding="utf-8")")
             for line in f:
                 try:
                     runs.append(json.loads(line))
@@ -53,3 +53,4 @@
             "questions": 7
         }
     }
+
