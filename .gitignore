@@ -1,13 +1,6 @@
-﻿# Environment variables
+﻿.venv/
 .env
-
-# Virtual environment
-.venv/
-
-# Byte-compiled files
 __pycache__/
-*.py[cod]
-*.class
-
-# Logs
+*.pyc
+CRITICAL_DUMP*.txt
 *.log

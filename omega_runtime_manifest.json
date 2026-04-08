@@ -1,0 +1,11 @@
+﻿{
+    "policy":  "Only active line may affect runtime. Legacy quarantined.",
+    "version":  "v1.27",
+    "preprocessor_path":  "src/preprocessor/preprocessor.py",
+    "engine_status":  "active_line_only",
+    "vault_path":  "",
+    "session_counter_path":  ".session_counter.txt",
+    "runtime_entrypoint":  "src/orchestrator/main.py",
+    "run_log_path":  ".omega_runs_active.jsonl",
+    "constitution_path":  "src/layers/layer1_constitution.txt"
+}

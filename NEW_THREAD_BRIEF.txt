@@ -1,0 +1,50 @@
+﻿Ω Prompt OS  Ren sammanfattning för ny tråd
+
+Projekt:
+Ω Prompt OS  Deterministiskt Enterprise Prompt Operating System
+
+Huvudsyfte:
+Ett skarpt, deterministiskt 7-lagers Prompt Operating System som fungerar som ett komplement till vanliga LLM-chattar (Grok, ChatGPT, Claude m.fl.).
+
+Systemet ska:
+- lägga på struktur, säkerhet, determinism och audit på vanliga chattar
+- användas för att analysera kontrakt, dokument och affärsbeslut i enterprise-miljö
+- vara fail-closed, spårbart och enterprise-compliant
+- aldrig lagra känslig data i GitHub eller OS om den inte uttryckligen får lagras
+
+Aktuell status:
+Vi har en aktiv linje i repot:
+- src/orchestrator/main.py
+- src/preprocessor/preprocessor.py
+- src/layers/layer1_constitution.txt
+
+Systemet kan starta och svara när LLM:en fungerar.
+Vi har byggt en teknisk grund:
+- 7-lagers arkitektur
+- preprocessor med state injection
+- run-logg med signaturer
+- GitHub-repo
+- lokal pilot
+- enkel fallback
+
+De 7 lagren (kanoniska):
+1. Constitution Layer  ABSOLUT SIMULATION LOCK + core rules
+2. Reasoning & Memory Layer  Chain-of-Thought + self-reflection
+3. Governance & Safety Layer  compliance, ethics, truth-seeking
+4. Task & Domain Layer  task classification and domain knowledge
+5. Validation Layer  confidence scoring + SAFE_REJECT
+6. Orchestration Layer  dual-LLM judge + routing
+7. User & Audit Layer  output + full logging + hash-chained vault
+
+Vad som återstår:
+- kommersiell paketering (licens, pricing, SLA)
+- deployment, testning, CI/CD, dokumentation
+- multi-model validation / judge
+- enterprise-funktioner (kontraktsanalysmallar, compliance-check, audit-rapporter)
+- säker datahantering (zero-trust; känslig data får aldrig sparas)
+- robust, intelligent fallback när nycklar eller modeller är nere
+- hård determinism och version-låsning utan läckor
+
+Arbetsregel framåt:
+Endast active line får påverka runtime.
+Allt äldre är legacy och får inte påverka drift.

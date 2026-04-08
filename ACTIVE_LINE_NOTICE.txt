@@ -1,0 +1,11 @@
+﻿ACTIVE LINE ONLY
+
+Only these files are allowed to affect runtime:
+
+- src/orchestrator/main.py
+- src/preprocessor/preprocessor.py
+- src/layers/layer1_constitution.txt
+- .omega_runs_active.jsonl
+
+All legacy files have been quarantined and must not be used for runtime.
+All analysis artifacts have been moved out of the active line.
