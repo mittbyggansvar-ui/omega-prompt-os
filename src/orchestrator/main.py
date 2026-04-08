@@ -4,6 +4,25 @@
 from runtime_verifier import runtime_verify
 runtime_verify()
 
+# Audit chain verification at startup
+from verify_audit_chain import verify_audit_chain
+verify_audit_chain()
+
+
+# === STRICT IMPORT ENFORCEMENT - ZERO-TRUST ===
+ALLOWED_MODULES = {
+    "hashlib", "json", "os", "sys", "datetime", "runtime_verifier", "verify_audit_chain"
+}
+
+def safe_import(name):
+    base = name.split('.')[0]
+    if base not in ALLOWED_MODULES and not name.startswith("src."):
+        print(f"SAFE_REJECT: Otillåten import blockerades: {name}")
+        import sys
+        sys.exit(1)
+    __import__(name)
+    print(f"Import OK: {name}")
+
 import sys
 import os
 
@@ -351,4 +370,6 @@ while True:
     print(f" -> Signature: {signature}")
     print(f" -> Svar: {response}")
     print(f"[RunLog] Entry appended -> {run_log_path}")
+
+
 

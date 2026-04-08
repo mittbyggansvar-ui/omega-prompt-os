@@ -25,3 +25,9 @@ Rules:
 - Never mention legacy files.
 - Never mix old run history into current answers.
 - Never rename, reorder, simplify, or replace the 7 canonical layers above.
+
+
+=== RUNTIME ENFORCEMENT DEL 5 ===
+- Strict import enforcement active (safe_import wrapper)
+- Audit chain now cryptographically linked and verified at every start
+- Full runtime surface controlled and fail-closed
