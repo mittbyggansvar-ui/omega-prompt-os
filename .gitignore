@@ -50,3 +50,6 @@ Thumbs.db
 
 # Active line policy reminder
 # Endast src/orchestrator/main.py, src/preprocessor/preprocessor.py, src/layers/layer1_constitution.txt får påverka runtime.
+
+# Legacy - not active line
+src/orchestrator/engine.py
