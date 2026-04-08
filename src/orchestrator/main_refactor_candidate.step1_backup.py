@@ -23,18 +23,6 @@ runtime_verify()
 
 from src.orchestrator.verify_audit_chain import verify_audit_chain
 from .verify_audit_chain import verify_audit_chain
-
-def bootstrap_environment():
-    load_dotenv()
-
-def bootstrap_runtime_verification():
-    runtime_verify()
-
-def bootstrap_audit_verification():
-    verify_audit_chain()
-
-def bootstrap_banner():
-    print("Ω Prompt OS ACTIVE LINE loaded - Grok-3 primary + OpenAI fallback")
 verify_audit_chain()
 
 # LLM clients
@@ -66,7 +54,6 @@ def process(user_input: str):
 if __name__ == "__main__":
     test = "Hej, hur mår du idag?"
     process(test)
-
 
 
 
