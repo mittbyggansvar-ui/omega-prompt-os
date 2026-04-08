@@ -1,6 +1,14 @@
-﻿.venv/
-.env
-__pycache__/
-*.pyc
-CRITICAL_DUMP*.txt
-*.log
+﻿# Ω Prompt OS - Active Line Only
+.env*
+*.backup
+.omega-final
+.omega_runs.jsonl
+.omega_vault.json
+_legacy_quarantine/
+_analysis_artifacts/
+omega_runtime_manifest.json.bak
+src/orchestrator/engine.py
+diagnostics.py
+test_*.py
+boot_omega*.py
+CRITICAL_DUMP*
