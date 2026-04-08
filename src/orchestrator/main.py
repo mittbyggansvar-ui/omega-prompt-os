@@ -1,4 +1,10 @@
-﻿import sys
+﻿
+# === RUNTIME ENFORCEMENT - FAIL-CLOSED ===
+# ABSOLUT SIMULATION LOCK + boundary proof
+from runtime_verifier import runtime_verify
+runtime_verify()
+
+import sys
 import os
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -345,3 +351,4 @@ while True:
     print(f" -> Signature: {signature}")
     print(f" -> Svar: {response}")
     print(f"[RunLog] Entry appended -> {run_log_path}")
+

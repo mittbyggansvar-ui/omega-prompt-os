@@ -1,14 +1,19 @@
 ﻿{
-    "policy":  "Only active line may affect runtime. Legacy quarantined.",
-    "version":  "v1.27",
-    "preprocessor_path":  "src/preprocessor/preprocessor.py",
-    "engine_status":  "active_line_only",
-    "vault_path":  "",
-    "session_counter_path":  ".session_counter.txt",
-    "runtime_entrypoint":  "src/orchestrator/main.py",
-    "run_log_path":  ".omega_runs_active.jsonl",
-    "constitution_path":  "src/layers/layer1_constitution.txt",
-    "hash_src_orchestrator_main.py":  "A7902948B584B5046CE51A894638B546D4A29EC67F930ACA2E6311EA107C1E56",
-    "hash_src_preprocessor_preprocessor.py":  "C5A9F3ECA52409BB28E657DA61CB66E7DF6892B5DD2291488D42EABA151F1CDD",
-    "hash_src_layers_layer1_constitution.txt":  "F69349CD31BD32DD5FC48F9B67BAEEF63D5DDFEB83EE46E7FDE86D86891C01A1"
+    "policy":  "Only these files may affect runtime. Hash mismatch = immediate SAFE_REJECT",
+    "version":  "1.27",
+    "enforcement":  "fail_closed",
+    "active_line":  [
+                        {
+                            "path":  "src/orchestrator/main.py",
+                            "sha256":  "a7902948b584b5046ce51a894638b546d4a29ec67f930aca2e6311ea107c1e56"
+                        },
+                        {
+                            "path":  "src/preprocessor/preprocessor.py",
+                            "sha256":  "c5a9f3eca52409bb28e657da61cb66e7df6892b5dd2291488d42eaba151f1cdd"
+                        },
+                        {
+                            "path":  "src/layers/layer1_constitution.txt",
+                            "sha256":  "f69349cd31bd32dd5fc48f9b67baeef63d5ddfeb83ee46e7fde86d86891c01a1"
+                        }
+                    ]
 }
