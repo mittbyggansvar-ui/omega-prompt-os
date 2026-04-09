@@ -1,11 +1,11 @@
-﻿{
+{
     "policy":  "Only these files may affect runtime. Hash mismatch = immediate SAFE_REJECT",
     "version":  "1.27",
     "enforcement":  "fail_closed",
     "active_line":  [
                         {
                             "path":  "src/orchestrator/main.py",
-                            "sha256":  "833f790b3148727fb7b4f6a6e51716d33834d103c18ee136ce18b08c1b433b5a"
+                            "sha256":  "5a9507bb5e2a8f3126db9a33c06058fe35087969aed65c47aea1a0e4f5c33091"
                         },
                         {
                             "path":  "src/preprocessor/preprocessor.py",
@@ -22,8 +22,14 @@
                         {
                             "path":  "src/orchestrator/verify_audit_chain.py",
                             "sha256":  "71eeb39d3d16ec4e98995bc077ce6488d0b178137f39ed0d2d065923757e4ae0"
+                        },
+                        {
+                            "path":  "src/orchestrator/runtime_llm.py",
+                            "sha256":  "ae850350bfd113e37bf427970cad125ba25382f9db48d3d176bec5bf33cf2962"
+                        },
+                        {
+                            "path":  "src/orchestrator/runtime_modes.py",
+                            "sha256":  "ef11324b587f7da06c7fbb5da191bba36a1f226cacdd7e0e687226d52183616f"
                         }
                     ]
 }
-
-
