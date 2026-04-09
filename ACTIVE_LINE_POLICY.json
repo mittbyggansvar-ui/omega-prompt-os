@@ -1,0 +1,14 @@
+﻿{
+  "policy": "Active Line Protection",
+  "enforcement": "fail_closed_repo_governance",
+  "rule": "No direct edits to active_line files. All changes must happen in candidate and be promoted atomically.",
+  "protected_files": [
+    "omega_runtime_manifest.json",
+    "src/orchestrator/main.py",
+    "src/preprocessor/preprocessor.py",
+    "src/layers/layer1_constitution.txt",
+    "src/orchestrator/runtime_verifier.py",
+    "src/orchestrator/verify_audit_chain.py"
+  ],
+  "promotion_override_env": "ALLOW_ACTIVE_LINE_PROMOTION"
+}
