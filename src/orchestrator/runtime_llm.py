@@ -24,12 +24,35 @@ def safe_import(name):
         sys.exit(1)
     __import__(name)
 
+def resolve_provider():
+    provider = os.getenv("OMEGA_RUNTIME_PROVIDER", "auto").strip().lower()
+    if provider not in {"auto", "xai", "openai"}:
+        raise RuntimeError(
+            "Invalid OMEGA_RUNTIME_PROVIDER. Use one of: auto, xai, openai."
+        )
+    return provider
+
 def route_model(intent):
+    provider = resolve_provider()
+
+    if provider == "xai":
+        if not os.getenv("XAI_API_KEY"):
+            raise RuntimeError("OMEGA_RUNTIME_PROVIDER=xai but XAI_API_KEY is missing.")
+        return "grok"
+
+    if provider == "openai":
+        if not os.getenv("OPENAI_API_KEY"):
+            raise RuntimeError("OMEGA_RUNTIME_PROVIDER=openai but OPENAI_API_KEY is missing.")
+        return "openai"
+
     if os.getenv("XAI_API_KEY"):
         return "grok"
     if os.getenv("OPENAI_API_KEY"):
         return "openai"
-    raise RuntimeError("No supported LLM credentials found. Set XAI_API_KEY or OPENAI_API_KEY.")
+
+    raise RuntimeError(
+        "No supported LLM credentials found. Set XAI_API_KEY or OPENAI_API_KEY."
+    )
 
 def _extract_text(response):
     if response is None:
