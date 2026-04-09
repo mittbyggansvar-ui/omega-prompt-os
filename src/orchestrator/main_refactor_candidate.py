@@ -5,7 +5,7 @@ import os
 import sys
 from dotenv import load_dotenv
 
-BOOT_BANNER = "Ω Prompt OS ACTIVE LINE loaded - Grok-3 primary + OpenAI fallback"
+BOOT_BANNER = "Ω Prompt OS REFACTOR CANDIDATE loaded - Grok-3 primary + OpenAI fallback"
 BOOTSTRAPPED = False
 
 # Safe import enforcement
@@ -118,6 +118,13 @@ def call_llm(model, prompt):
         return call_openai(prompt)
     raise RuntimeError(f"Unsupported model route: {model}")
 
+def display_model_name(model):
+    if model == "grok":
+        return "Grok-3"
+    if model == "openai":
+        return "OpenAI"
+    return str(model)
+
 def validate_output(response_text):
     if not response_text or not str(response_text).strip():
         raise RuntimeError("LLM returned empty output")
@@ -149,8 +156,9 @@ def process(user_input: str):
 if __name__ == "__main__":
     test = "Hej, hur mår du idag?"
     model, result = run_with_meta(test, mode="default")
-    print(f"Model used: {model}")
+    print(f"Model used: {display_model_name(model)}")
     print(f"Svar: {result}")
+
 
 
 
